@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.calculodeimc</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.appcompat.app.AppCompatActivity</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.os.Bundle</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.EditText</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity {</span>
+
+    <span class="s0">private </span><span class="s1">EditText editNome</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">EditText editPeso</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">EditText editAltura</span><span class="s0">;</span>
+    <span class="s0">private </span><span class="s1">TextView resultado</span><span class="s0">;</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span><span class="s0">;</span>
+
+        <span class="s1">editNome = findViewById(R.id.editNome)</span><span class="s0">;</span>
+        <span class="s1">editPeso = findViewById(R.id.editPeso)</span><span class="s0">;</span>
+        <span class="s1">editAltura = findViewById(R.id.editAltura)</span><span class="s0">;</span>
+        <span class="s1">resultado = findViewById(R.id.resultado)</span><span class="s0">;</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">calcularIMC(View view){</span>
+
+        <span class="s0">double </span><span class="s1">peso = Double.parseDouble(editPeso.getText().toString())</span><span class="s0">;</span>
+        <span class="s0">double </span><span class="s1">altura = Double.parseDouble(editAltura.getText().toString())</span><span class="s0">;</span>
+
+        <span class="s0">double </span><span class="s1">imc = peso/(altura*altura)</span><span class="s0">;</span>
+
+        <span class="s0">if</span><span class="s1">(imc &gt;= </span><span class="s2">18.5 </span><span class="s1">&amp;&amp; imc &lt;= </span><span class="s2">24.99</span><span class="s1">){</span>
+
+            <span class="s1">resultado.setText(</span><span class="s3">&quot;PESO NORMAL! Seu IMC é: &quot;</span><span class="s1">+ imc)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(imc &gt;= </span><span class="s2">25 </span><span class="s1">&amp;&amp; imc &lt;= </span><span class="s2">29.99</span><span class="s1">){</span>
+
+            <span class="s1">resultado.setText(</span><span class="s3">&quot;ACIMA DO PESO!! Seu IMC é: &quot;</span><span class="s1">+ imc)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(imc &gt;= </span><span class="s2">30 </span><span class="s1">&amp;&amp; imc &lt;= </span><span class="s2">34.99</span><span class="s1">){</span>
+
+            <span class="s1">resultado.setText(</span><span class="s3">&quot;OBESIDADE I! Seu IMC é: &quot;</span><span class="s1">+ imc)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(imc &gt;= </span><span class="s2">35 </span><span class="s1">&amp;&amp; imc &lt;= </span><span class="s2">39.99</span><span class="s1">){</span>
+
+            <span class="s1">resultado.setText(</span><span class="s3">&quot;OBESIDADE II! Seu IMC é: &quot;</span><span class="s1">+ imc)</span><span class="s0">;</span>
+
+        <span class="s1">} </span><span class="s0">else if </span><span class="s1">(imc &gt; </span><span class="s2">40</span><span class="s1">) {</span>
+
+            <span class="s1">resultado.setText(</span><span class="s3">&quot;OBESIDADE III! Seu IMC é: &quot;</span><span class="s1">+ imc)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+
+    <span class="s1">}</span>
+
+<span class="s1">}</span></pre>
+</body>
+</html>
